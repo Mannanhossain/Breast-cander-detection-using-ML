@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Download Report</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #f9f9f9;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .download-container {
+            max-width: 500px;
+            margin: 80px auto;
+            padding: 30px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #2c3e50;
+        }
+
+        .btn-primary {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .btn-secondary {
+            width: 100%;
+            padding: 10px;
+            font-size: 15px;
+            margin-top: 10px;
+        }
+
+        .form-label {
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="download-container">
+        <h2 class="mb-4">Patient Report Details</h2>
+
+        <form method="POST" action="{{ url_for('generate_report') }}">
+            <div class="mb-3">
+                <label for="patient_name" class="form-label">Patient Name</label>
+                <input type="text" class="form-control" id="patient_name" name="patient_name" placeholder="Name" required>
+            </div>
+            <div class="mb-3">
+                <label for="patient_age" class="form-label">Patient Age</label>
+                <input type="number" class="form-control" id="patient_age" name="patient_age" placeholder="Age" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Download Report</button>
+        </form>
+
+        <a href="{{ url_for('home') }}" class="btn btn-secondary">← Back to Home</a>
+    </div>
+</body>
+</html>
